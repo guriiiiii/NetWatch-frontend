@@ -15,7 +15,6 @@ export default function List({list}) {
     const [slideNumber, setSlideNumber] = useState(0);
     const [clickLimit, setClickLimit] = useState(window.innerWidth/230);
     
-    console.log(list.content.length)
     const listRef = useRef();
 
     const handleClick = (direction)=>{
@@ -40,7 +39,7 @@ export default function List({list}) {
             <ArrowBackIosOutlinedIcon className='sliderArrow left' onClick={()=>handleClick("left")} style = {{display:!isMoved&&"none"}}/>
             <div className="container" ref={listRef}>
                 {list.content.map((item,index) =>(
-                    <ListItem index ={index} item ={item}/>
+                    <ListItem index ={index} item ={item} key={index}/>
                 ))}   
             </div>
             <ArrowForwardIosOutlinedIcon className='sliderArrow right' onClick={()=>handleClick("right")}/>
