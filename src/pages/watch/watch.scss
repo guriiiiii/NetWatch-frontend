@@ -1,0 +1,27 @@
+.watch{
+    padding: 0;
+    margin: 0;
+    width: 99vw;
+    height: 99vh;
+
+    .back{
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: white;
+        cursor: pointer;
+        z-index: 2;
+
+        span{
+            margin-left: 15px;;
+        }
+    }
+
+    .video{
+        width: 99%;
+        height: 99%;
+        object-fit: cover;
+    }
+}
