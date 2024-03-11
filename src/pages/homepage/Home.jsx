@@ -12,17 +12,6 @@ export default function Home({type}) {
   useEffect(()=>{
     const getRandomLists = async () =>{
       try{
-        if(type="new"){
-          const res = await axios.get(`lists`,{
-            headers:{
-              token:
-              "Bearer "+ JSON.parse(localStorage.getItem("user")).accessToken
-            }
-          });
-          console.log(res.data)
-          setLists(res.data);
-        }
-        else{
           const res = await axios.get(`lists${type ? "?type=" + type : ""}${genre ? "&genre=" + genre : ""}`,{
             headers:{
               token:
@@ -31,7 +20,6 @@ export default function Home({type}) {
           });
           setLists(res.data);
         }
-      }
       catch(err){
         console.log(err);
       }
