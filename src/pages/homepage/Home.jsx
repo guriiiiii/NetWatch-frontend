@@ -19,6 +19,7 @@ export default function Home({type}) {
               "Bearer "+ JSON.parse(localStorage.getItem("user")).accessToken
             }
           });
+          console.log(res.data)
           setLists(res.data);
         }
         else{
@@ -37,12 +38,13 @@ export default function Home({type}) {
     };
     getRandomLists();
   },[type,genre]);
+  console.log(lists)
 
   return (
     <div className='home'>
         <Navbar/>
         <Featured type={type} setGenre={setGenre}/>
-        {lists.map((list)=>(
+        {Array.isArray(lists) &&lists.map((list)=>(
           <List list={list} key={list._id}/>
         ))}
     </div>
