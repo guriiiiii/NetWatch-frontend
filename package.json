@@ -42,5 +42,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy":"https://net-watch-backend.vercel.app//api/"
+  "proxy": "https://net-watch-backend.vercel.app//api/",
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+  }
 }
