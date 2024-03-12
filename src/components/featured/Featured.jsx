@@ -22,7 +22,7 @@ export default function Featured({type, setGenre}) {
           setContent(res.data[0]);
         }
         else{
-          const res = await axios.get(`/movies/random?type=${type}`,{
+          const res = await axiosInstance.get(`/movies/random?type=${type}`,{
             headers:{
               token:
                 "Bearer "+ JSON.parse(localStorage.getItem("user")).accessToken,
