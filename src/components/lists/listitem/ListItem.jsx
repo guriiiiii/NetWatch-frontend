@@ -4,7 +4,7 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import AddIcon from "@mui/icons-material/Add";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ThumbDownIcon from "@mui/icons-material/ThumbDown";
-import axios from "axios";
+import { axiosInstance } from "../../../config";
 import { Link } from "react-router-dom";
 
 export default function ListItem({ index, item }) {
@@ -14,7 +14,7 @@ export default function ListItem({ index, item }) {
   useEffect(()=>{
     const getMovie = async()=>{
       try{
-        const res = await axios.get("/movies/find/"+item,{
+        const res = await axiosInstance.get("/movies/find/"+item,{
           headers:{
             token:"Bearer " +JSON.parse(localStorage.getItem("user")).accessToken,
           },

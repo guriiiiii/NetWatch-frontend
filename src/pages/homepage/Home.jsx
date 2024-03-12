@@ -3,7 +3,7 @@ import "./home.scss"
 import Navbar from '../../components/navbar/Navbar';
 import Featured from '../../components/featured/Featured';
 import List from '../../components/lists/List';
-import axios from "axios";
+import { axiosInstance } from '../../config';
 
 export default function Home({type}) {
   const[lists,setLists] = useState([]);
@@ -12,7 +12,7 @@ export default function Home({type}) {
   useEffect(()=>{
     const getRandomLists = async () =>{
       try{
-          const res = await axios.get(`lists${type ? "?type=" + type : ""}${genre ? "&genre=" + genre : ""}`,{
+          const res = await axiosInstance.get(`lists${type ? "?type=" + type : ""}${genre ? "&genre=" + genre : ""}`,{
             headers:{
               token:
               "Bearer "+ JSON.parse(localStorage.getItem("user")).accessToken
