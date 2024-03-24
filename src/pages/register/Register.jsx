@@ -3,7 +3,6 @@ import { useRef } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./register.scss";
-import { axiosInstance } from '../../config';
 
 export default function Register() {
   const [email, setEmail] = useState("");
