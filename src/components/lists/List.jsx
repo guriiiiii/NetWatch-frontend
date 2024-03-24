@@ -18,6 +18,7 @@ export default function List({list}) {
     const listRef = useRef();
 
     const handleClick = (direction)=>{
+        setClickLimit(window.innerWidth/230)
         setIsMoved(true);
         let distance = listRef.current.getBoundingClientRect().x -50;
         if(direction ==="left"&&slideNumber>0){

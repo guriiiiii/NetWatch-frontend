@@ -12,16 +12,6 @@ export default function Featured({type, setGenre}) {
   useEffect(()=>{
     const getRandomContent = async()=>{
       try{
-        if(type="new"){
-          const res = await axiosInstance.get(`/movies/random`,{
-            headers:{
-              token:
-                "Bearer "+ JSON.parse(localStorage.getItem("user")).accessToken,
-            },
-          })
-          setContent(res.data[0]);
-        }
-        else{
           const res = await axiosInstance.get(`/movies/random?type=${type}`,{
             headers:{
               token:
@@ -29,7 +19,6 @@ export default function Featured({type, setGenre}) {
             },
           })
           setContent(res.data[0]);
-        }
       }catch(err){
         console.log(err)
       }

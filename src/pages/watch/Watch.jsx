@@ -1,30 +1,9 @@
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import "./watch.scss";
-import { axiosInstance } from '../../config';
-
-import UNCHARTED from "./UNCHARTED.mp4"
 import { Link, useLocation } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 
 export default function Watch() {
-  const [picture, setPicture] = useState({});
 
-  useEffect(()=>{
-    const getMovie = async()=>{
-      try{
-        const res = await axiosInstance.get("/movies/find/",{
-          headers:{
-            token:
-            "Bearer " +JSON.parse(localStorage.getItem("user")).accessToken,
-          },
-        });
-        setPicture(res.data);
-      }catch(err){
-        console.log(err)
-      }
-    };
-    getMovie();
-  },[])
   const location = useLocation();
   console.log(location)
   const movie = location.state.movie;
