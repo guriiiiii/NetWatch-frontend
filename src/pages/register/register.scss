@@ -119,5 +119,30 @@
                 }
             }
         }
-    }   
+    }  
+    .disclaimer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #f8f8f8;
+        padding: 20px;
+        text-align: center;
+        animation-name: slideUp;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+      }
+      
+      @keyframes slideUp {
+        0% {
+          transform: translateY(100%);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+       
 }
+

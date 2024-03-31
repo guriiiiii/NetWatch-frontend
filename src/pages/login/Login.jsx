@@ -4,6 +4,12 @@ import { login } from "../../authContext/apiCalls";
 import { AuthContext } from "../../authContext/AuthContext";
 
 export default function Login() {
+  const [showDisclaimer, setShowDisclaimer] = useState(true);
+
+  // Function to hide the disclaimer when clicked
+  const handleDisclaimerClick = () => {
+    setShowDisclaimer(false);
+  };
   const [email,setEmail] = useState("")
   const [password,setPassword] = useState("");
   const {dispatch} = useContext(AuthContext)
@@ -38,6 +44,20 @@ export default function Login() {
           </small>
         </form>
       </div>
+      <div>
+      {showDisclaimer && (
+        <div className="disclaimer" onClick={handleDisclaimerClick}>
+          <p>
+            Disclaimer: This website is a project or educational clone
+            inspired by Netflix and is not affiliated with the official
+            Netflix service. The purpose of this project is purely
+            educational and does not involve commercial activities. Any data
+            collected on this website is used for educational purposes only
+            and is not shared with third parties.
+          </p>
+        </div>
+      )}
+    </div>
     </div>
   );
 }
